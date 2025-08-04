@@ -5,6 +5,7 @@ import BrowseTasks from "../pages/BrowseTasks";
 import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <h1>Home</h1>,
+        element: <Home></Home>,
       },
       {
         path: "addTask",
