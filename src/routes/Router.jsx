@@ -6,11 +6,13 @@ import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Home from "../pages/Home";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         index: true,
