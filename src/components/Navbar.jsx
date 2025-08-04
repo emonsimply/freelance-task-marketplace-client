@@ -72,7 +72,7 @@ const Navbar = () => {
           <Link to="/login">login</Link>
         </button>
         <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600 mx-2">
-          <Link to="/signup">Signup</Link>
+          <Link to="/signup">Sign up</Link>
         </button>
         {/* Theme Toggle Button */}
         <button onClick={toggleTheme} className="btn btn-ghost btn-circle">

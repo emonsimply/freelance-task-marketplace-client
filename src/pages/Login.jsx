@@ -35,7 +35,7 @@ const Login = () => {
 
         <button className="btn w-full flex items-center justify-center gap-2 bg-white border border-green-300 hover:bg-green-100 text-black">
           <FcGoogle className="text-xl" />
-          Continue with Google
+          Login with Google
         </button>
 
         <p className="text-center mt-4">
