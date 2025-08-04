@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router";
-import '../components/Navbar.css'; 
+import { Link, NavLink } from "react-router";
+import "../components/Navbar.css";
+import logo from "../assets/logo.png";
 
-
-import logo from "../assets/bullseye-pointer.png";
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
 
@@ -15,15 +14,22 @@ const Navbar = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
-
-  const links = <>
-  <NavLink to="/"><li className="mr-4">Home </li></NavLink>
-  <NavLink to="/addTask"><li className="mr-4">AddTask</li></NavLink>
-  <NavLink to="/browseTasks"><li className="mr-4">BrowseTasks</li></NavLink>
-  <NavLink to="/post"><li className="mr-4 ">My Posted Tasks</li></NavLink>
-  
-  
-  </>
+  const links = (
+    <>
+      <NavLink to="/">
+        <li className="mr-6">Home </li>
+      </NavLink>
+      <NavLink to="/addTask">
+        <li className="mr-6">Add Task</li>
+      </NavLink>
+      <NavLink to="/browseTasks">
+        <li className="mr-6">Browse Tasks</li>
+      </NavLink>
+      <NavLink to="/post">
+        <li>My Posted Tasks</li>
+      </NavLink>
+    </>
+  );
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -53,17 +59,21 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className=""><img src={logo} alt="logo" className="w-10 h-10" /></a>
+        <a className="">
+          <img src={logo} alt="logo" className="w-10 h-10" />
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      
+
       <div className="navbar-end">
-        <button className="btn rounded-full bg-emerald-500"><NavLink to="/login">login</NavLink></button>
-        <button className="btn rounded-full bg-emerald-500"><NavLink to="/signup">Signup</NavLink></button>
+        <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600">
+          <Link to="/login">login</Link>
+        </button>
+        <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600 mx-2">
+          <Link to="/signup">Signup</Link>
+        </button>
         {/* Theme Toggle Button */}
         <button onClick={toggleTheme} className="btn btn-ghost btn-circle">
           {theme === "light" ? (
@@ -83,9 +93,7 @@ const Navbar = () => {
               fill="currentColor"
               viewBox="0 0 20 20"
             >
-              <path
-                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-              />
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
             </svg>
           )}
         </button>

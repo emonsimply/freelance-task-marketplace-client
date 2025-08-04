@@ -1,11 +1,15 @@
 import React from "react";
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="bg-gray-800 text-white py-10 mt-12">
-        <div className="container  mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+      <footer className="bg-green-100 text-green-700 py-10 mt-12">
+        <div className="flex justify-center mb-6">
+          <a className=""><img src={logo} alt="logo" className="w-10 h-10 " /></a>
+        </div>
+        
+        <div className="container  mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           {/* Contact Info */}
           <div>
             <h2 className="text-xl font-semibold mb-3">Contact Us</h2>
@@ -25,45 +29,44 @@ const Footer = () => {
           {/* Social Media */}
           <div>
             <h2 className="text-xl font-semibold mb-3">Follow Us</h2>
-            <div className="flex justify-center md:justify-start gap-4 text-2xl">
+            <div className="flex justify-center items-center gap-4 text-2xl">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaFacebook className="hover:text-blue-500" />
+                <FaFacebook className="hover:text-green-600" />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaTwitter className="hover:text-sky-400" />
+                <FaTwitter className="hover:text-green-600" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaLinkedin className="hover:text-blue-400" />
+                <FaLinkedin className="hover:text-green-600" />
               </a>
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaGithub className="hover:text-gray-400" />
+                <FaGithub className="hover:text-green-600" />
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Text */}
-        <div className="text-center text-sm text-gray-400 mt-8">
-          © {new Date().getFullYear()} Task Marketplace. All rights reserved.
+        
+        <div className="text-center text-sm text-green-700 mt-8">
+          © 2025 Freelance Task Marketplace. All rights reserved.
         </div>
       </footer>
-    </div>
   );
 };
 
