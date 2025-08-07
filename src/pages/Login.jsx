@@ -1,10 +1,13 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router";
 import { auth } from "../components/firebase.init";
+import { UserContext } from "../context/AuthProvider";
 
 const Login = () => {
+  const {setUser} = use(UserContext);
+
   const [errorMessage, setErrorMessage] = useState(" ");
   const [successMessage, setSuccessMessage] = useState(false);
 
@@ -21,6 +24,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         console.log(result.user);
+        setUser(result.user);
         setSuccessMessage(true);
       })
       .catch((error) => {
@@ -55,7 +59,7 @@ const Login = () => {
           </a>
           <button
             type="submit"
-            className="btn w-full mt-3 bg-green-500 hover:bg-green-600 text-white"
+            className="btn w-full mt-3 rounded-full bg-green-500 hover:bg-green-600 text-white"
           >
             Login
           </button>

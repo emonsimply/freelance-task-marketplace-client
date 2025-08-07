@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../components/firebase.init";
@@ -94,7 +94,7 @@ const Signup = () => {
           />
           <button
             type="submit"
-            className="btn w-full bg-green-500 hover:bg-green-600 text-white"
+            className="btn w-full rounded-full bg-green-500 hover:bg-green-600 text-white"
           >
             Register
           </button>

@@ -1,9 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import "../components/Navbar.css";
 import logo from "../assets/logo.png";
+import { UserContext } from "../context/AuthProvider";
 
 const Navbar = () => {
+  const { user, signOutUser } = use(UserContext);
+
+  const handleLogout = () => {
+    signOutUser()
+    .then(()=>{
+      alert("Logout successful");
+    })
+    .catch((error) => {
+      console.error("Logout failed:", error);
+      alert("Logout failed. Please try again.");
+    });
+  };
+
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
@@ -68,12 +82,38 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
-        <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600">
-          <Link to="/login">login</Link>
-        </button>
-        <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600 mx-2">
-          <Link to="/signup">Sign up</Link>
-        </button>
+        {user ? (
+          <div className="flex items-center">
+            <div className="relative group w-fit">
+              {/* Profile photo */}
+              <img
+                src={user.photoURL}
+                alt="Profile"
+                className="w-12 h-12 rounded-full border border-green-700 cursor-pointer"
+              />
+
+              {/* Display name on hover */}
+              <div className="absolute  left-1/2 -translate-x-1/2 bg-green-700 text-white text-sm px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none whitespace-nowrap z-10">
+                {user.displayName}
+              </div>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="btn bg-red-500 text-white hover:bg-red-600 rounded-full mx-2"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600">
+              <Link to="/login">login</Link>
+            </button>
+            <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600 mx-2">
+              <Link to="/signup">Sign up</Link>
+            </button>
+          </div>
+        )}
         {/* Theme Toggle Button */}
         <button onClick={toggleTheme} className="btn btn-ghost btn-circle">
           {theme === "light" ? (
