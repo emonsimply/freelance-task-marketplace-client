@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
 
         
-        <div className="text-center text-sm text-green-700 mt-8">
+        <div className="text-center text-sm flex justify-center flex-wrap mt-8 text-green-700 md:flex-nowrap md:whitespace-nowrap">
           © 2025 Freelance Task Marketplace. All rights reserved.
         </div>
       </footer>
