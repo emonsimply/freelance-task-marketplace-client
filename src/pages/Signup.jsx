@@ -115,7 +115,7 @@ const Signup = () => {
 
         <div className="divider">OR</div>
 
-        <button className="btn w-full flex items-center justify-center gap-2 bg-white border border-green-300 hover:bg-green-100 text-black">
+        <button className="btn w-full rounded-full flex items-center justify-center gap-2 bg-white border border-green-300 hover:bg-green-100 text-black">
           <FcGoogle className="text-xl" />
           Sign up with Google
         </button>

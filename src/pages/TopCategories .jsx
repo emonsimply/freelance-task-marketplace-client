@@ -2,7 +2,7 @@ import React from "react";
 
 const TopCategories = () => {
   return (
-    <div className="my-16 px-4 mx-auto">
+    <div className="md:my-16 px-4 mx-auto">
       <h2 className="text-3xl  md:text-4xl text-green-700 font-bold text-center mb-8">
         Top Categories
       </h2>

@@ -105,7 +105,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="flex items-center">
             <button className="btn rounded-full text-white bg-green-500 hover:bg-green-600">
               <Link to="/login">login</Link>
             </button>

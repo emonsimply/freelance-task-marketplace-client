@@ -2,7 +2,7 @@ import React from "react";
 
 const HowItWorks = () => {
   return (
-    <div className="my-16 px-4 bg-blue-100 py-18 rounded-lg mx-auto">
+    <div className="md:my-16 px-4 md:bg-blue-100 py-18 rounded-lg mx-auto">
       <h2 className="text-3xl md:text-4xl text-green-700 font-bold text-center mb-8">
         How It Works
       </h2>
