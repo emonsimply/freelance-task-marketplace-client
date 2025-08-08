@@ -4,9 +4,10 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router";
 import { auth } from "../components/firebase.init";
 import { UserContext } from "../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const {setUser} = use(UserContext);
+  const { setUser } = use(UserContext);
 
   const [errorMessage, setErrorMessage] = useState(" ");
   const [successMessage, setSuccessMessage] = useState(false);
@@ -18,12 +19,19 @@ const Login = () => {
     const password = form.password.value;
 
     setErrorMessage(false);
-    setSuccessMessage(" ");
+    setSuccessMessage(false);
 
     // login logic here
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        console.log(result.user);
+        Swal.fire({
+          // position: "top-end",
+          icon: "success",
+          title: "Login successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
         setUser(result.user);
         setSuccessMessage(true);
       })

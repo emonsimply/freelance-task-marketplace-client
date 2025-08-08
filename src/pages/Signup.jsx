@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { auth } from "../components/firebase.init";
 import profilePhoto from "../assets/profile-picture.png";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   const [errorMessage, setErrorMessage] = useState(" ");
@@ -32,29 +33,35 @@ const Signup = () => {
       return;
     }
 
-  
-
     // Create user with email and password
-    createUserWithEmailAndPassword(auth, email, password).then((result) => {
-      console.log(result);
-      // setSuccessMessage(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        console.log(result);
+        // setSuccessMessage(true);
+        Swal.fire({
+          // position: "top-end",
+          icon: "success",
+          title: "Registration completed successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
-      const profile ={
-        displayName: name,
-        photoURL: photoURL || profilePhoto,
-      }
-      updateProfile(auth.currentUser, profile)
-      .then(()=>{
-        console.log("Profile updated successfully");
+        const profile = {
+          displayName: name,
+          photoURL: photoURL || profilePhoto,
+        };
+        updateProfile(auth.currentUser, profile)
+          .then(() => {
+            console.log("Profile updated successfully");
+          })
+          .catch((error) => {
+            console.log("Error updating profile:", error);
+          });
       })
       .catch((error) => {
-        console.log("Error updating profile:", error);
+        console.log(error);
+        setErrorMessage(error.message);
       });
-    })
-    .catch((error) => {
-      console.log(error);
-      setErrorMessage(error.message);
-    });
   };
 
   return (
