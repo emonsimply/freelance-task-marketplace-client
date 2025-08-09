@@ -16,7 +16,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: ()=> fetch("http://localhost:3000/addTask"),
         element: <Home></Home>,
       },
       {
@@ -25,6 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "browseTasks",
+        loader: ()=> fetch("http://localhost:3000/addTask"),
         element: <BrowseTasks></BrowseTasks>,
       },
       {
