@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
+import TaskDetails from "../pages/TaskDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +25,13 @@ const router = createBrowserRouter([
       },
       {
         path: "browseTasks",
-        loader: ()=> fetch("http://localhost:3000/addTask"),
+        loader: () => fetch("http://localhost:3000/addTask"),
         element: <BrowseTasks></BrowseTasks>,
+      },
+      {
+        path: "/taskDetails/:id",
+        loader:() => fetch("http://localhost:3000/addTask"),
+        element: <TaskDetails></TaskDetails>,
       },
       {
         path: "post",

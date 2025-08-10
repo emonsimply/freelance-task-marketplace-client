@@ -27,7 +27,7 @@ const TaskCard = ({ task }) => {
 
       <div className="p-4 border-t border-green-100">
         <Link
-          to={`/task/${task._id}`}
+          to={`/taskDetails/${task._id}`}
           className=" w-full text-center btn rounded-full bg-green-500 text-white hover:bg-green-600"
         >
           See Details
