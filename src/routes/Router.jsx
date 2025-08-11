@@ -2,12 +2,12 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import MainLayout from "../layout/MainLayout";
 import AddTask from "../pages/AddTask";
 import BrowseTasks from "../pages/BrowseTasks";
-import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import TaskDetails from "../pages/TaskDetails";
+import MyPostedTasks from "../pages/MyPostedTasks";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +34,9 @@ const router = createBrowserRouter([
         element: <TaskDetails></TaskDetails>,
       },
       {
-        path: "post",
-        element: <Post></Post>,
+        path: "myPostedTasks",
+        loader:() => fetch("http://localhost:3000/addTask"),
+        element: <MyPostedTasks></MyPostedTasks>,
       },
       {
         path: "login",

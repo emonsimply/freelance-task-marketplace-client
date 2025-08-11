@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router";
 
 const BrowseTasks = () => {
   const tasks = useLoaderData();
-  console.log(tasks);
+  // console.log(tasks);
   return (
     <Suspense
       fallback={

@@ -39,7 +39,7 @@ const Navbar = () => {
       <NavLink to="/browseTasks">
         <li className="mr-6">Browse Tasks</li>
       </NavLink>
-      <NavLink to="/post">
+      <NavLink to="/myPostedTasks">
         <li>My Posted Tasks</li>
       </NavLink>
     </>
