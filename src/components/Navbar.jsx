@@ -3,19 +3,40 @@ import { Link, NavLink } from "react-router";
 import "../components/Navbar.css";
 import logo from "../assets/logo.png";
 import { UserContext } from "../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, signOutUser } = use(UserContext);
 
   const handleLogout = () => {
     signOutUser()
-    .then(()=>{
-      alert("Logout successful");
-    })
-    .catch((error) => {
-      console.error("Logout failed:", error);
-      alert("Logout failed. Please try again.");
-    });
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logout successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: { error },
+          showClass: {
+            popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `,
+          },
+          hideClass: {
+            popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `,
+          },
+        });
+      });
   };
 
   const [theme, setTheme] = useState("light");

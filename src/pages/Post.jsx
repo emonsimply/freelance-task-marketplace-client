@@ -1,7 +1,38 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const Post = ({ task }) => {
-  console.log(task);
+  const { _id, taskTitle, category, deadline, budget } = task;
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      console.log(result.isConfirmed);
+      if (result.isConfirmed) {
+
+        fetch(`http://localhost:3000/addTask/${_id}`, {
+          method: 'DELETE'
+        })
+        .then (res => res.json())
+        .then(data => {
+         if(data.deletedCount){
+          Swal.fire({
+          title: "Deleted!",
+          text: "Your task has been deleted.",
+          icon: "success",
+        });
+         }
+        })
+        
+      }
+    });
+  };
   return (
     <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md">
       <table className="min-w-full bg-white">
@@ -25,31 +56,32 @@ const Post = ({ task }) => {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200">
-          <tr key={task._id} className="hover:bg-green-50 transition-colors">
+          <tr key={_id}>
             <td className="py-4 px-4">
-              <div className="font-medium text-gray-800">{task.taskTitle}</div>
-              <div className="text-sm text-gray-500 sm:hidden">
-                {task.category}
-              </div>
+              <div className="font-medium text-gray-800">{taskTitle}</div>
+              <div className="text-sm text-gray-500 sm:hidden">{category}</div>
             </td>
             <td className="py-4 px-4 hidden sm:table-cell text-gray-700">
-              {task.category}
+              {category}
             </td>
             <td className="py-4 px-4 hidden md:table-cell text-gray-700">
-              {task.deadline}
+              {deadline}
             </td>
             <td className="py-4 px-4 font-semibold text-green-700">
-              ${task.budget}
+              ${budget}
             </td>
             <td className="py-4 px-4">
               <div className="flex flex-col gap-1">
-                <button className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 text-sm transition-colors hover:rounded-full">
+                <button className="btn btn-sm bg-green-500 text-white transition-colors hover:rounded-full">
                   Update
                 </button>
-                <button className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-sm hover:rounded-full ">
+                <button
+                  onClick={() => handleDelete(_id)}
+                  className="btn btn-sm bg-red-500 text-white hover:rounded-full "
+                >
                   Delete
                 </button>
-                <button className="px-3 py-1 bg-green-700 text-white rounded hover:bg-green-800 text-sm transition-colors hover:rounded-full">
+                <button className="btn btn-sm rounded  transition-colors hover:rounded-full">
                   Bids
                 </button>
               </div>
