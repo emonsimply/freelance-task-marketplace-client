@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const Post = ({ task }) => {
@@ -72,9 +73,11 @@ const Post = ({ task }) => {
             </td>
             <td className="py-4 px-4">
               <div className="flex flex-col gap-1">
+                <Link to={`/updataTask/${_id}`}>
                 <button className="btn btn-sm bg-green-500 text-white transition-colors hover:rounded-full">
                   Update
                 </button>
+                </Link>
                 <button
                   onClick={() => handleDelete(_id)}
                   className="btn btn-sm bg-red-500 text-white hover:rounded-full "
