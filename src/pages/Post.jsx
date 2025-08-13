@@ -17,7 +17,7 @@ const Post = ({ task }) => {
       console.log(result.isConfirmed);
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:3000/addTask/${_id}`, {
+        fetch(`https://freelance-task-marketplace-server-eta.vercel.app/addTask/${_id}`, {
           method: 'DELETE'
         })
         .then (res => res.json())

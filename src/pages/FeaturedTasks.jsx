@@ -4,7 +4,7 @@ const FeaturedTasks = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/addTask") // make sure port matches your backend
+    fetch("https://freelance-task-marketplace-server-eta.vercel.app/addTask") // make sure port matches your backend
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched Featured Tasks:", data); // debugging

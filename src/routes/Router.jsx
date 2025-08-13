@@ -26,22 +26,22 @@ const router = createBrowserRouter([
       },
       {
         path: "browseTasks",
-        loader: () => fetch("http://localhost:3000/addTask"),
+        loader: () => fetch("https://freelance-task-marketplace-server-eta.vercel.app/addTask"),
         element: <BrowseTasks></BrowseTasks>,
       },
       {
         path: "/taskDetails/:id",
-        loader: () => fetch("http://localhost:3000/addTask"),
+        loader: () => fetch("https://freelance-task-marketplace-server-eta.vercel.app/addTask"),
         element: <TaskDetails></TaskDetails>,
       },
       {
         path: "myPostedTasks",
-        loader: () => fetch("http://localhost:3000/addTask"),
+        loader: () => fetch("https://freelance-task-marketplace-server-eta.vercel.app/addTask"),
         element: <MyPostedTasks></MyPostedTasks>,
       },
       {
         path: "/updataTask/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/addTask/${params.id}`),
+        loader: ({params}) => fetch(`https://freelance-task-marketplace-server-eta.vercel.app/addTask/${params.id}`),
         element: <UpdateTask></UpdateTask>,
       },
       {
